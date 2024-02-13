@@ -1,0 +1,11 @@
+.gameContainer {
+  width: 70%;
+  height: 70%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #2e383a;
+  border-radius: 20px;
+  box-shadow: 0 0 40px 0 rgb(243, 5, 5);
+}

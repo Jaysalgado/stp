@@ -1,0 +1,135 @@
+.qaContainer {
+  height: 60%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #ff3b1f;
+  background-image: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(0, 0, 0, 0.2)
+  );
+  border-radius: 20px;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5),
+    -10px -10px 30px rgba(255, 255, 255, 0.3),
+    inset 1px 1px 10px rgba(255, 255, 255, 0.3),
+    inset -1px -1px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.4),
+      transparent 70%
+    );
+    transform: rotate(45deg);
+    border-radius: 50%;
+  }
+}
+
+.questionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 3rem;
+  height: 50%;
+  width: 90%;
+  background-color: white;
+  border: black 2px solid;
+  border-radius: 20px;
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.2);
+}
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 35%;
+  width: 70%;
+  background-color: transparent;
+  border-radius: 20px;
+}
+.inpBox {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-bottom: 5%;
+  width: 100%;
+  align-items: center;
+
+  input {
+    width: 100%;
+    height: 6vh;
+    border-radius: 20px;
+    border: black 2px solid;
+    font-size: 2vmin;
+    font-weight: 700;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    outline: none;
+    &:focus {
+      box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.7); // Custom focus style
+    }
+  }
+}
+
+.submitButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+.butn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3vh;
+  width: 20vh;
+  padding: 10px 20px;
+  // Creating a glossy black effect
+  background: rgb(32, 32, 32); /* Dark base color for gloss */
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    /* Slight shine at the top */ rgba(32, 32, 32, 1) 50%,
+    /* Transition to solid black */ rgba(0, 0, 0, 1) 80%,
+    /* Deep black towards the bottom */ rgba(255, 255, 255, 0.1) 100%
+      /* Subtle reflection at the bottom edge */
+  );
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+    /* Soft outer shadow */ inset 0px -4px 2px rgba(0, 0, 0, 0.9),
+    /* Inner shadow for depth */ inset 0px 4px 2px rgba(255, 255, 255, 0.1); /* Top inner highlight for gloss */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2),
+      /* Enhanced outer shadow on hover */ inset 0px -4px 2px rgba(0, 0, 0, 0.9),
+      /* Maintaining inner depth */ inset 0px 4px 2px rgba(255, 255, 255, 0.2); /* Increased highlight for active gloss */
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+      /* Subdued outer shadow for pressed effect */ inset 0px -4px 2px rgba(0, 0, 0, 0.9),
+      /* Consistent inner depth */ inset 0px 4px 2px rgba(255, 255, 255, 0.2); /* Maintained glossy highlight */
+  }
+}
