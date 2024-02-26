@@ -53,3 +53,15 @@
   font-family: Papyrus, fantasy;
   text-decoration: underline;
 }
+
+.users {
+  width: 100%;
+  // background-color: #ff3b1f;
+  display: flex;
+  flex-direction: column;
+  align-content: start;
+}
+.user {
+  font-size: large;
+  padding-left: 10px;
+}

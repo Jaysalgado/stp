@@ -1,0 +1,134 @@
+.container {
+  width: 70%;
+  height: 70%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #2e383a;
+  border-radius: 20px;
+  box-shadow: 0 0 40px 0 rgb(243, 5, 5);
+}
+.linkDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  //   background-color: aqua;
+}
+.copyContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  //   border-radius: 5px;
+  //   box-shadow: 0 0 40px 0 rgb(243, 5, 5);
+}
+.input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  height: 3vh;
+  width: 60%;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 40px 0 rgb(243, 5, 5);
+  transition: box-shadow 0.3s ease;
+  //   background-color: #f30505;
+
+  &:focus {
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+  }
+}
+.cpyButn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: transparent;
+  color: #f30505;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  height: 3vh;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 0 0 40px 0 rgb(243, 5, 5);
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    animation: breathingEffect 2s infinite;
+    cursor: pointer;
+  }
+
+  @keyframes breathingEffect {
+    0% {
+      box-shadow: 0 0 40px 0 rgba(243, 5, 5, 0.8);
+    }
+    50% {
+      box-shadow: 0 0 40px 0 rgba(243, 5, 5, 0.4);
+    }
+    100% {
+      box-shadow: 0 0 40px 0 rgba(243, 5, 5, 0.8);
+    }
+  }
+}
+h1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 5vh;
+  width: 40%;
+}
+
+.copied {
+  animation: fadeOut 4s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #f30505;
+  font-size: 30px;
+  margin-top: 80px;
+  padding: 10px;
+  border: none;
+  height: 5vh;
+  width: 15vh;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 0 0 40px 0 rgb(243, 5, 5);
+  transition: box-shadow 0.3s ease;
+  animation: breathingEffect 2s infinite;
+
+  &:hover {
+    cursor: pointer;
+    color: #f30505a7;
+  }
+
+  @keyframes breathingEffect {
+    0% {
+      box-shadow: 0 0 40px 0 rgba(243, 5, 5, 0.8);
+    }
+    50% {
+      box-shadow: 0 0 40px 0 rgba(243, 5, 5, 0.4);
+    }
+    100% {
+      box-shadow: 0 0 40px 0 rgba(243, 5, 5, 0.8);
+    }
+  }
+}
