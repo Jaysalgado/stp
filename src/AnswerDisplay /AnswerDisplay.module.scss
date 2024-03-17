@@ -46,9 +46,18 @@
   border-radius: 20px;
   box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
   border: black 2px solid;
+  overflow: scroll;
+  .answers {
+    width: 100%;
+    padding-left: 10px;
+
+    .answer {
+    }
+  }
 }
 .title {
   font-size: 1.4rem;
   font-family: Papyrus, fantasy;
   text-decoration: underline;
 }
+

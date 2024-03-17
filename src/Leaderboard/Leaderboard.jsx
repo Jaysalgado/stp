@@ -3,10 +3,10 @@ import styles from './Leaderboard.module.scss';
 import DisplayUsers from './DisplayUsers';
 import Socket from '../socket';
 
-const Leaderboard = ({ players }) => {
+const Leaderboard = ({ players, user }) => {
   return (
     <div className={styles.leaderboardContainer}>
-      <DisplayUsers users={players} />
+      <DisplayUsers users={players} username={user} />
     </div>
   );
 };

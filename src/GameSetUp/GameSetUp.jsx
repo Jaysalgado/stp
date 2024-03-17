@@ -46,6 +46,7 @@ function GameSetUp() {
         </div>
       ) : (
         <div
+          className={styles.create}
           onClick={() => {
             createGame();
             link();

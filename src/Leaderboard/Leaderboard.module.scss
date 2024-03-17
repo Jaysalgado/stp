@@ -61,7 +61,18 @@
   flex-direction: column;
   align-content: start;
 }
+
 .user {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   font-size: large;
   padding-left: 10px;
+
+  .score {
+    padding-right: 10px;
+  }
+}
+.them {
+  color: #ff3b1f;
 }

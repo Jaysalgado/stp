@@ -10,26 +10,6 @@ import Socket from './socket';
 const socket = io('http://localhost:3001');
 
 function App() {
-  const [isConnected, setIsConnected] = useState(socket.connected);
-
-  useEffect(() => {
-    function onConnect() {
-      setIsConnected(true);
-    }
-
-    function onDisconnect() {
-      setIsConnected(false);
-    }
-
-    socket.on('connect', onConnect);
-    socket.on('disconnect', onDisconnect);
-
-    return () => {
-      socket.off('connect', onConnect);
-      socket.off('disconnect', onDisconnect);
-    };
-  }, []);
-
   return (
     <Socket.Provider value={socket}>
       <div className="App">

@@ -132,3 +132,11 @@ h1 {
     }
   }
 }
+
+.create {
+  font-size: 5vh;
+  &:hover {
+    cursor: pointer;
+    color: #f30505a7;
+  }
+}

@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './QA.module.scss';
 
-function Input() {
+function Input({ score }) {
+  const [response, setRes] = useState('');
+
+  const onSubmit = (e) => {
+    e.preventDefault(); // Prevent form submission from reloading the page
+    score(response.trim()); // Call the score function with the answer
+    setRes(''); // Reset the answer for the next input
+  };
+
   return (
-    <div className={styles.inputContainer}>
+    <form onSubmit={onSubmit} className={styles.inputContainer}>
       <div className={styles.inpBox}>
-        <input type="text" placeholder="Type answer ..." />
+        <input
+          type="text"
+          placeholder="Type answer ..."
+          value={response}
+          onChange={(e) => setRes(e.target.value)}
+        />
       </div>
       <div className={styles.submitButton}>
-        <div className={styles.butn}>Submit</div>
+        <input type="submit" className={styles.butn} value="Submit" />
       </div>
-    </div>
+    </form>
   );
 }
 

@@ -12,10 +12,10 @@ function Game() {
   const navigate = useNavigate();
   const [username, setUsername] = useState(getUsernameCookie());
   const [users, setUsers] = useState([]);
+  const [answer, setAnswers] = useState([]);
 
   useEffect(() => {
     socket.emit('room exists', roomId);
-
     socket.on('true', () => {
       const user = username ? username : createUsername();
       if (!username) {
@@ -32,8 +32,13 @@ function Game() {
       });
       socket.emit('get users', roomId);
       socket.on('users', (users) => {
-        console.log('users', users);
-        setUsers(users);
+        const arr = Object.entries(users);
+        const sortedArr = arr.sort((a, b) => b[1] - a[1]);
+        setUsers(sortedArr);
+      });
+      socket.on('display answer', (answers) => {
+        console.log('answers', answers);
+        setAnswers(answers);
       });
     });
     socket.on('error joining', (message) => {
@@ -46,6 +51,7 @@ function Game() {
       socket.off('error joining');
       socket.off('true');
       socket.off('users');
+      socket.off('display answer');
     };
   }, [socket, roomId, username, navigate]);
 
@@ -76,9 +82,9 @@ function Game() {
 
   return (
     <div className={styles.gameContainer}>
-      <Leaderboard players={users} />
-      <QA />
-      <AnswerDisplay />
+      <Leaderboard players={users} user={username} />
+      <QA room={roomId} user={username} />
+      <AnswerDisplay answers={answer} />
     </div>
   );
 }
