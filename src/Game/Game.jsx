@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import styles from './Game.module.scss';
-import QA from '../QA/QA';
-import Leaderboard from '../Leaderboard/Leaderboard';
-import AnswerDisplay from '../AnswerDisplay /AnswerDisplay';
-import Socket from '../socket';
+import React, { useState, useEffect, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import styles from "./Game.module.scss";
+import QA from "../QA/QA";
+import Leaderboard from "../Leaderboard/Leaderboard";
+import AnswerDisplay from "../AnswerDisplay/AnswerDisplay";
+import Socket from "../socket";
 
 function Game() {
   const socket = useContext(Socket);
@@ -15,43 +15,43 @@ function Game() {
   const [answer, setAnswers] = useState([]);
 
   useEffect(() => {
-    socket.emit('room exists', roomId);
-    socket.on('true', () => {
+    socket.emit("room exists", roomId);
+    socket.on("true", () => {
       const user = username ? username : createUsername();
       if (!username) {
         setUsername(user);
         saveUsernameCookie(user);
       }
-      socket.emit('join game', { roomId, user });
-      socket.on('joined game', (room) => {
-        console.log('Joined room:', room);
+      socket.emit("join game", { roomId, user });
+      socket.on("joined game", (room) => {
+        console.log("Joined room:", room);
       });
-      socket.on('player joined', (id) => {
-        console.log('player joined', id);
-        console.log('hey ' + username);
+      socket.on("player joined", (id) => {
+        console.log("player joined", id);
+        console.log("hey " + username);
       });
-      socket.emit('get users', roomId);
-      socket.on('users', (users) => {
+      socket.emit("get users", roomId);
+      socket.on("users", (users) => {
         const arr = Object.entries(users);
         const sortedArr = arr.sort((a, b) => b[1] - a[1]);
         setUsers(sortedArr);
       });
-      socket.on('display answer', (answers) => {
-        console.log('answers', answers);
+      socket.on("display answer", (answers) => {
+        console.log("answers", answers);
         setAnswers(answers);
       });
     });
-    socket.on('error joining', (message) => {
-      navigate('/');
+    socket.on("error joining", (message) => {
+      navigate("/");
       console.log(message);
     });
     return () => {
-      socket.off('joined game');
-      socket.off('player joined');
-      socket.off('error joining');
-      socket.off('true');
-      socket.off('users');
-      socket.off('display answer');
+      socket.off("joined game");
+      socket.off("player joined");
+      socket.off("error joining");
+      socket.off("true");
+      socket.off("users");
+      socket.off("display answer");
     };
   }, [socket, roomId, username, navigate]);
 
@@ -65,18 +65,18 @@ function Game() {
   };
 
   function getUsernameCookie() {
-    const cookies = document.cookie.split('; ');
+    const cookies = document.cookie.split("; ");
     const usernameCookie = cookies.find((cookie) =>
-      cookie.startsWith('username=')
+      cookie.startsWith("username=")
     );
-    return usernameCookie ? usernameCookie.split('=')[1] : false;
+    return usernameCookie ? usernameCookie.split("=")[1] : false;
   }
 
   const createUsername = () => {
     const min = Math.ceil(0); // Ensure the min is rounded up to the nearest whole number
     const max = Math.floor(100); // Ensure the max is rounded down to the nearest whole number
     const num = Math.floor(Math.random() * (max - min + 1)) + min;
-    const getName = 'User' + num.toString();
+    const getName = "User" + num.toString();
     return getName;
   };
 
