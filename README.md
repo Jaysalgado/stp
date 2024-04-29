@@ -1,4 +1,4 @@
-#Steps to get Started
+# Steps to get Started
 - Set up a development enviroment of your choice with node.js
 1. Fork and clone the repo
 2. Run npm i from the project folder in terminal to install dependencies
