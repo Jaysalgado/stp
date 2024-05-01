@@ -1,11 +1,10 @@
-import React from 'react';
-import styles from './AnswerDisplay.module.scss';
+import React from "react";
+import styles from "./AnswerDisplay.module.scss";
 
 const DisplayAll = ({ answers }) => {
- 
   return (
     <div className={styles.answerContainer}>
-      <p className={styles.title}>Guesses</p>
+      <p className={styles.title}>Chat</p>
       {answers.length > 0 && (
         <div className={styles.answers}>
           {answers.map((answer, index) => {
